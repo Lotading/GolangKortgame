@@ -35,7 +35,7 @@ func hand(Deck *Deck) {
 		}
 	}
 	Deck.Kort = kortStokk
-	
+
 	fmt.Println(Suits)
 	fmt.Println(kortStokk)
 	fmt.Println(Kort)
