@@ -22,10 +22,22 @@ func main() {
 }
 
 func hand(Deck *Deck) {
-	Kort := []string{"1","2","3","4","5","6","7","8","9","10","J","Q","K"}
-	// Suits := []string{"Dia","Hje","Spa","Klø"}
 
-	Deck.Kort = Kort
+	var kortStokk []string
+
+	Kort := []string{"1","2","3","4","5","6","7","8","9","10","J","Q","K"}
+	Suits := []string{"Dia","Hje","Spa","Klø"}
+
+	for i := 0; i < len(Suits); i++ {
+		for j := 0; j < len(Kort); j++ {
+			card := Kort[j] + Suits[i]
+			kortStokk = append(kortStokk, card)
+		}
+	}
+	Deck.Kort = kortStokk
+	
+	fmt.Println(Suits)
+	fmt.Println(kortStokk)
 	fmt.Println(Kort)
 }
 
