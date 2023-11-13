@@ -22,19 +22,11 @@ func main() {
 }
 
 func hand(Deck *Deck) {
-	KortDeck := []string{"1","2","3","4","5","6","7","8","9","10","J","Q","K"}
-	Suits := []string{"Dia","Hje","Spa","Klø"}
+	Kort := []string{"1","2","3","4","5","6","7","8","9","10","J","Q","K"}
+	// Suits := []string{"Dia","Hje","Spa","Klø"}
 
-	for i := 0; i < count; i++ {
-
-		for i := 0; i < count; i++ {
-			
-		}
-
-	}
-
-	// Deck.Kort = Kort
-	// fmt.Println(Kort)
+	Deck.Kort = Kort
+	fmt.Println(Kort)
 }
 
 func spiller(Gamers *Gamers) {
