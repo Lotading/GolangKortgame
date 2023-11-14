@@ -1,8 +1,8 @@
 package main
 
-import (	
-	"math/rand"
+import (
 	"fmt"
+	"math/rand"
 )
 
 type Deck struct {
@@ -16,7 +16,7 @@ type Gamers struct {
 }
 
 type spillerKort struct {
-	spKort map[string][]string
+	spKort map[string][]string	
 }
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 
 	hand(deck)
 	spiller(gamers)
-	KortGame(deck,gamers,spillerkort)
+	shuffleNgive(deck,gamers,spillerkort)
 }
 
 func hand(Deck *Deck) {
@@ -76,14 +76,18 @@ func spiller(Gamers *Gamers) {
 	fmt.Println(navnArr)
 }
 
-func KortGame(deck *Deck,Gamers *Gamers, spillerKort *spillerKort) {
+func shuffleNgive(deck *Deck,Gamers *Gamers, spillerKort *spillerKort) {
 
+	spillere := Gamers.navnArr
+	spillKort := spillerKort.spKort
 	hand := deck.Kort
+	kortStokklen := 5
 
 	for i := len(hand) - 1; i > 0; i-- {
 		j := rand.Intn(i + 1)
 		hand[i], hand[j] = hand[j], hand[i]
 	}
-	
 	fmt.Println(hand)
+
+	
 }
