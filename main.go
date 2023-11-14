@@ -1,6 +1,7 @@
 package main
 
 import (	
+	"math/rand"
 	"fmt"
 )
 
@@ -10,10 +11,12 @@ type Deck struct {
 
 type Gamers struct {
 	Antall int
+	navn string
+	navnArr []string
 }
 
 type spillerKort struct {
-	spKort map[string]string
+	spKort map[string][]string
 }
 
 func main() {
@@ -45,6 +48,9 @@ func hand(Deck *Deck) {
 func spiller(Gamers *Gamers) {
 
 	var Antall int
+	var navn string
+	var navnArr []string
+
 	fmt.Print("Hvor mange spillere er det? ")
 	fmt.Scan(&Antall)
 
@@ -55,10 +61,29 @@ func spiller(Gamers *Gamers) {
 			fmt.Println("For mange spillere")
 		default:
 			Gamers.Antall = Antall
-			return
 	}
+
+	
+	for  i := 0;  i < Antall;  i++ {
+		fmt.Print("Hva heter de? ")
+		fmt.Scan(&navn)
+		navnArr = append(navnArr, navn)
+	}
+
+	Gamers.navnArr = navnArr
+	Gamers.navn = navn
+
+	fmt.Println(navnArr)
 }
 
 func KortGame(deck *Deck,Gamers *Gamers, spillerKort *spillerKort) {
+
+	hand := deck.Kort
+
+	for i := len(hand) - 1; i > 0; i-- {
+		j := rand.Intn(i + 1)
+		hand[i], hand[j] = hand[j], hand[i]
+	}
 	
+	fmt.Println(hand)
 }
