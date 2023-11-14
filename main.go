@@ -1,7 +1,6 @@
 package main
 
-import (
-	"crypto/rand"
+import (	
 	"fmt"
 )
 
@@ -13,13 +12,18 @@ type Gamers struct {
 	Antall int
 }
 
+type spillerKort struct {
+	spKort map[string]string
+}
+
 func main() {
 	deck := &Deck{}
 	gamers := &Gamers{}
+	spillerkort := &spillerKort{}
 
 	hand(deck)
 	spiller(gamers)
-	KortGame(deck,gamers)
+	KortGame(deck,gamers,spillerkort)
 }
 
 func hand(Deck *Deck) {
@@ -36,10 +40,6 @@ func hand(Deck *Deck) {
 		}
 	}
 	Deck.Kort = kortStokk
-
-	fmt.Println(Suits)
-	fmt.Println(kortStokk)
-	fmt.Println(Kort)
 }
 
 func spiller(Gamers *Gamers) {
@@ -50,7 +50,7 @@ func spiller(Gamers *Gamers) {
 
 	switch {
 		case Antall <= 1:
-			fmt.Println("???")
+			fmt.Println("Vennligst få flere til å være med")
 		case Antall > 8:
 			fmt.Println("For mange spillere")
 		default:
@@ -59,6 +59,6 @@ func spiller(Gamers *Gamers) {
 	}
 }
 
-func KortGame(deck *Deck,Gamers *Gamers){
+func KortGame(deck *Deck,Gamers *Gamers, spillerKort *spillerKort) {
 	
 }
